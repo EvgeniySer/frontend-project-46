@@ -2,6 +2,7 @@
 
 import { program } from 'commander';
 import readFile from './src/parser.js';
+import generateDiff from './src/gendiff.js';
 
 const version = '1.0.0';
 
@@ -16,9 +17,8 @@ program
     try {
       const data1 = readFile(filepath1);
       const data2 = readFile(filepath2);
-
-      console.log('File 1 data:', data1);
-      console.log('File 2 data:', data2);
+      const diff = generateDiff(data1, data2);
+      console.log(diff);
     } catch (error) {
       console.error(`Error: ${error.message}`);
       process.exit(1);
