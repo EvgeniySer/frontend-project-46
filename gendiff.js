@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
+import readFile from './src/parser.js';
 
 const version = '1.0.0';
 
@@ -12,8 +13,16 @@ program
   .helpOption('-h, --help', 'display help for command')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2) => {
-    console.log(`Comparing files:\nFile 1: ${filepath1}\nFile 2: ${filepath2}`);
-    console.log(`Format: ${program.opts().format || 'default'}`);
+    try {
+      const data1 = readFile(filepath1);
+      const data2 = readFile(filepath2);
+
+      console.log('File 1 data:', data1);
+      console.log('File 2 data:', data2);
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+      process.exit(1);
+    }
   });
 
 program.parse();
