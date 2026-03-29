@@ -1,12 +1,6 @@
-.PHONY: lint test test-coverage
-
 lint:
-	npm run lint
-
+	npx eslint .
 test:
 	npm test
-
 test-coverage:
-	npm run coverage
-
-ci: lint test-coverage
+	npm test -- --coverage --coverageProvider=v8

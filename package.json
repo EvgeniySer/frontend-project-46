@@ -1,38 +1,41 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/EvgeniySer/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/EvgeniySer/frontend-project-46/actions)",
-  "main": "gendiff.js",
-  "type": "module",
-  "bin": {
-    "gendiff": "./gendiff.js"
-  },
+  "description": "difference generator",
+  "main": "src/compareFiles.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint src/ gendiff.js __tests__/",
-    "coverage": "jest --coverage --coverageReporters=text --coverageReporters=lcov"
+    "testdev": "jest --watchAll"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EvgeniySer/frontend-project-46.git"
+    "url": "git+https://github.com/mkolotovich/frontend-project-lvl2.git"
   },
-  "author": "",
+  "keywords": [
+    "difference",
+    "generator"
+  ],
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "author": "Mike Kolotovich",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EvgeniySer/frontend-project-46/issues"
+    "url": "https://github.com/mkolotovich/frontend-project-lvl2/issues"
   },
-  "homepage": "https://github.com/EvgeniySer/frontend-project-46#readme",
+  "type": "module",
+  "homepage": "https://github.com/mkolotovich/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^14.0.3",
-    "js-yaml": "^4.1.1",
-    "lodash": "^4.17.23"
+    "commander": "^7.2.0",
+    "js-yaml": "^3.14.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
-    "eslint": "^10.1.0",
-    "globals": "^17.4.0",
-    "jest": "^30.3.0"
+    "@jest/globals": "^27.0.3",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.4",
+    "jest-cli": "^27.0.4"
   }
 }
