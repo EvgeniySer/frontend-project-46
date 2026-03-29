@@ -1,26 +1,20 @@
-import js from '@eslint/js';
 import globals from 'globals';
-import importPlugin from 'eslint-plugin-import';
 
 export default [
   {
-    files: ['**/*.{js,mjs}'],
+    files: ['src/**/*.js', 'gendiff.js', '__tests__/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
-      sourceType: 'module',
+      sourceType: 'module'
+    },
+    rules: {}
+  },
+  {
+    files: ['__tests__/**/*.js', '**/*.test.js'],
+    languageOptions: {
       globals: {
-        ...globals.node,
-      },
-    },
-    plugins: {
-      import: importPlugin,
-    },
-    rules: {
-      ...js.configs.recommended.rules,
-      'import/no-unresolved': 'error',
-      'import/named': 'error',
-      'import/default': 'error',
-      'import/namespace': 'error'
+        ...globals.jest
+      }
     }
   }
 ];

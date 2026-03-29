@@ -1,28 +1,12 @@
-install: deps-install
-	npx simple-git-hooks
+.PHONY: lint test test-coverage
 
-run:
-	gendiff.js
-
-deps-install:
-	npm ci
-
-deps-update:
-	npx ncu -u
+lint:
+	npm run lint
 
 test:
 	npm test
 
 test-coverage:
-	npm test -- --coverage
+	npm run coverage
 
-lint:
-	npx eslint .
-
-lint-fix:
-	npx eslint . --fix
-
-publish:
-	npx release-it
-
-.PHONY: test
+ci: lint test-coverage
