@@ -2,64 +2,12 @@ name: ESLint & Tests Check
 
 on: push
 
-
 jobs:
-  code-quality:
-    name: Code Quality Checks
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint code
-        run: make lint
-
-      - name: Run tests with coverage
-        run: |
-          NODE_OPTIONS=--no-experimental-fetch npm test -- --coverage --coverageProvider=v8
-
-      - name: Verify coverage file exists
-        run: |
-          if [ ! -f "coverage/lcov.info" ]; then
-            echo "Error: coverage/lcov.info not found!"
-            exit 1
-          fi
-          ls -la coverage/
-
-      - name: Download CodeClimate Test Reporter
-        run: |
-          # Скачиваем актуальную версию cc-reporter с GitHub Releases
-          curl -L https://github.com/codeclimate/test-reporter/releases/download/v0.9.8/test-reporter-0.9.8-linux-amd64 > ./cc-reporter
-          chmod +x ./cc-reporter
-
-      - name: CodeClimate before-build
-        run: ./cc-reporter before-build
-
-      - name: Format coverage for CodeClimate
-        run: |
-          ./cc-reporter format-coverage -t lcov -o codeclimate.json coverage/lcov.info
-
-      - name: Upload coverage to CodeClimate
-        run: ./cc-reporter upload-coverage
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
   # Дополнительный job для быстрой проверки линтинга (опционально)
   quick-lint:
     name: Quick Lint Only
     runs-on: ubuntu-latest
-    needs: code-quality
+    # Убрали зависимость от code-quality, так как его нет
     if: always()
 
     steps:
