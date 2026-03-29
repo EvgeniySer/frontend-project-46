@@ -14,12 +14,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # или '16', если требуется
+          node-version: '18'
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies
-        run: npm ci  # вместо npm i для воспроизводимости
+        run: npm ci
 
       - name: Lint
         run: make lint
@@ -28,10 +28,17 @@ jobs:
         run: |
           NODE_OPTIONS=--no-experimental-fetch npm test -- --coverage --coverageProvider=v8
 
-      - name: CodeClimate Coverage
-        uses: paambaati/codeclimate-action@v3
+      - name: Download CodeClimate Test Reporter
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-reporter
+          chmod +x ./cc-reporter
+
+      - name: CodeClimate before-build
+        run: ./cc-reporter before-build
+
+      - name: CodeClimate after-build
+        run: |
+          ./cc-reporter format-coverage -t lcov -o codeclimate.json coverage/lcov.info
+          ./cc-reporter upload-coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: NODE_OPTIONS=--no-experimental-fetch make test-coverage
-          debug: true
