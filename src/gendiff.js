@@ -6,7 +6,7 @@ export default (data1, data2) => {
   for (const key of sortedKeys) {
     if (key in data1 && key in data2) {
       if (data1[key] === data2[key]) {
-        lines.push(`  ${key}: ${data1[key]}`);
+        lines.push(`  ${key}: ${data1[key]}`); // 2 пробела
       } else {
         lines.push(`- ${key}: ${data1[key]}`, `+ ${key}: ${data2[key]}`);
       }
@@ -21,5 +21,5 @@ export default (data1, data2) => {
     return '{}';
   }
 
-  return `{\n  ${lines.join('\n  ')}\n}`;
+  return `{\n  ${lines.join('\n  ')}\n}`; // 2 пробела перед каждой строкой
 };
