@@ -1,4 +1,9 @@
-export default (data1, data2) => {
+import parse from './parse.js';
+
+export default (filepath1, filepath2) => {
+  const data1 = parse(filepath1);
+  const data2 = parse(filepath2);
+
   const allKeys = new Set([...Object.keys(data1), ...Object.keys(data2)]);
   const sortedKeys = Array.from(allKeys).sort();
   const lines = [];
@@ -6,7 +11,7 @@ export default (data1, data2) => {
   for (const key of sortedKeys) {
     if (key in data1 && key in data2) {
       if (data1[key] === data2[key]) {
-        lines.push(`  ${key}: ${data1[key]}`); // 2 пробела
+        lines.push(`  ${key}: ${data1[key]}`);
       } else {
         lines.push(`- ${key}: ${data1[key]}`, `+ ${key}: ${data2[key]}`);
       }
@@ -21,5 +26,5 @@ export default (data1, data2) => {
     return '{}';
   }
 
-  return `{\n  ${lines.join('\n  ')}\n}`; // 2 пробела перед каждой строкой
+  return `{\n  ${lines.join('\n  ')}\n}`;
 };
