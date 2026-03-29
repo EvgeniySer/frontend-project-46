@@ -32,10 +32,12 @@
   },
   "devDependencies": {
     "@jest/globals": "^27.0.3",
+    "@jest/reporters": "^30.3.0",
     "eslint": "^7.27.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
-    "jest": "^27.0.4",
-    "jest-cli": "^27.0.4"
+    "jest": "^30.3.0",
+    "jest-cli": "^27.0.4",
+    "source-map": "^0.7.6"
   }
 }
