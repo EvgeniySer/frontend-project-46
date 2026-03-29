@@ -5,7 +5,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Результаты тестирования
-coverage/
 __tests__/__snapshots__/
 *.lcov
 
@@ -14,13 +13,6 @@ dist/
 build/
 out/
 .next/
-
-# Локальные настройки
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 # Файлы редактора
 .vscode/
