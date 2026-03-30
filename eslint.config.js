@@ -10,11 +10,8 @@ export default {
     '**/*.spec.js',
     '**.min.js',
     '**/vendor/**',
-
-    'eslint.config.js',
-
-    '/project/code/coverage/**',
-    
+    'eslint.config.js', 
+    '/project/code/coverage/**', 
     'coverage/**'
   ],
   languageOptions: {
@@ -35,7 +32,6 @@ export default {
     '@stylistic/arrow-parens': 'off',
     '@stylistic/max-statements-per-line': 'off',
     '@stylistic/no-multiple-empty-lines': 'off',
-    
     '@stylistic/eol-last': 'off'
   }
-};
+}
