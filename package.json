@@ -4,8 +4,8 @@
   "description": "difference generator",
   "main": "src/compareFiles.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --no-cache .",
+    "lint:fix": "eslint --no-cache --fix 'src/**/*.js'",
     "test": "jest",
     "testdev": "jest --watchAll",
     "test-coverage": "jest --coverage --coverageProvider=v8"
