@@ -3,6 +3,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 
 export default [
+  // ВАЖНО: секция ignores должна быть первой
   {
     ignores: [
       '**/eslint.config.js',
@@ -10,9 +11,11 @@ export default [
       '**/__tests__/**',
       '**/*.spec.js',
       '**/*.test.js',
-      'coverage/**', // Игнорируем папку coverage
-      'dist/**',
-      'build/**'
+      'coverage/**',           // Игнорируем папку coverage
+      'dist/**',             // Игнорируем сборку
+      'build/**',            // Игнорируем сборку
+      '*.min.js',           // Игнорируем минифицированные файлы
+      'vendor/**'            // Игнорируем сторонние библиотеки
     ],
   },
   js.configs.recommended,
