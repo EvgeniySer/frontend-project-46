@@ -4,7 +4,16 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['**/eslint.config.js', '**/node_modules/**', '**/__tests__/**'],
+    ignores: [
+      '**/eslint.config.js',
+      '**/node_modules/**',
+      '**/__tests__/**',
+      '**/*.spec.js',
+      '**/*.test.js',
+      'coverage/**', // Игнорируем папку coverage
+      'dist/**',
+      'build/**'
+    ],
   },
   js.configs.recommended,
   {
@@ -18,7 +27,6 @@ export default [
           modules: true,
         },
       },
-      // Указываем глобальные переменные для сред browser и node
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -27,9 +35,16 @@ export default [
     rules: {
       'no-console': 'off',
       'no-underscore-dangle': ['error', { allow: ['__filename', '__dirname'] }],
-      'semi': 'off',
-      'arrow-parens': 'off',
-      'max-statements-per-line': 'off',
+      '@stylistic/semi': 'off',
+      '@stylistic/arrow-parens': 'off',
+      '@stylistic/max-statements-per-line': 'off',
+      '@stylistic/indent': 'off',
+      '@stylistic/no-trailing-spaces': 'off',
+      '@stylistic/operator-linebreak': 'off',
+      '@stylistic/brace-style': 'off',
+      '@stylistic/comma-dangle': 'off',
+      '@stylistic/indent-binary-ops': 'off',
+      '@stylistic/no-multiple-empty-lines': 'off'
     },
   },
 ];
