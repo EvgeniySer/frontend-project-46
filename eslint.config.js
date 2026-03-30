@@ -1,5 +1,5 @@
-import js from '@eslint/js';
-import globals from 'globals';
+import js from '@eslint/js'
+import globals from 'globals'
 
 export default [
   {
@@ -12,8 +12,8 @@ export default [
       '**/*.test.js',
       '**/*.spec.js',
       '**.min.js',
-      'vendor/**'
-    ]
+      'vendor/**',
+    ],
   },
   js.configs.recommended,
   {
@@ -22,8 +22,8 @@ export default [
       sourceType: 'module',
       globals: {
         ...globals.browser,
-        ...globals.node
-      }
+        ...globals.node,
+      },
     },
     rules: {
       '@stylistic/semi': 'off',
@@ -35,7 +35,7 @@ export default [
       '@stylistic/arrow-parens': 'off',
       '@stylistic/max-statements-per-line': 'off',
       '@stylistic/no-multiple-empty-lines': 'off',
-      '@stylistic/eol-last': 'off'
+      '@stylistic/eol-last': 'off',
     }
   }
-];
+]

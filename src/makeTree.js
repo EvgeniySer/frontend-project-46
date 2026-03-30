@@ -27,7 +27,7 @@ const makeTree = (keys, parsedData1, parsedData2) => keys.map(el => {
   if (_.get(parsedData1, el) === _.get(parsedData2, el)) {
     return makeNode(el, 'unchanged', [], parsedData2[el])
   } if (_.has(parsedData1, el) && _.has(parsedData2, el)
-  && _.get(parsedData1, el) !== _.get(parsedData2, el)) {
+    && _.get(parsedData1, el) !== _.get(parsedData2, el)) {
     return makeNode(el, 'updated', [], parsedData1[el], parsedData2[el])
   } if (_.has(parsedData1, el)) {
     return makeNode(el, 'removed', [], parsedData1[el])
