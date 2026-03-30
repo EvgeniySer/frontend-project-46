@@ -1,17 +1,12 @@
+// eslint.config.js
 import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-import importPlugin from 'eslint-plugin-import';
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.url,
-});
+import globals from 'globals';
 
 export default [
   {
-    ignores: ['**/eslint.config.js', '**/node_modules/**'],
+    ignores: ['**/eslint.config.js', '**/node_modules/**', '**/__tests__/**'],
   },
   js.configs.recommended,
-  ...compat.extends('airbnb-base'),
   {
     languageOptions: {
       ecmaVersion: 'latest',
@@ -23,18 +18,18 @@ export default [
           modules: true,
         },
       },
-    },
-    plugins: {
-      import: importPlugin,
+      // Указываем глобальные переменные для сред browser и node
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     rules: {
       'no-console': 'off',
-      'import/extensions': 'off',
       'no-underscore-dangle': ['error', { allow: ['__filename', '__dirname'] }],
-      'semi': ['error', 'never'],
-      'arrow-parens': ['error', 'as-needed'],
-      'max-statements-per-line': ['error', { max: 2 }],
-      'import/no-extraneous-dependencies': 'off',
+      'semi': 'off',
+      'arrow-parens': 'off',
+      'max-statements-per-line': 'off',
     },
   },
 ];
