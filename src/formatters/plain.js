@@ -12,7 +12,9 @@ const printValue = (value) => {
 
 const plain = (tree) => {
   const cb = (node, path = '') => {
-    const { key, value, type, newValue, children } = node;
+    const {
+      key, value, type, newValue, children,
+    } = node;
     const lines = [];
 
     const currentPath = path ? `${path}.${key}` : key;

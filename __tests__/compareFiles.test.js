@@ -17,7 +17,7 @@ const normalizeString = (str) => str
   .trim()
   .replace(/[ \t]+$/gm, '')
   .split('\n')
-  .map(line => line.trim())
+  .map((line) => line.trim())
   .join('\n');
 
 describe.each([
