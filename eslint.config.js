@@ -1,17 +1,21 @@
-// eslint.config.js
 import globals from 'globals';
 
 export default {
   ignores: [
     '**/node_modules/**',
-    '**/coverage/**',
     '**/dist/**',
     '**/build/**',
     '**/__tests__/**',
     '**/*.test.js',
     '**/*.spec.js',
     '**.min.js',
-    '**/vendor/**'
+    '**/vendor/**',
+
+    'eslint.config.js',
+
+    '/project/code/coverage/**',
+    
+    'coverage/**'
   ],
   languageOptions: {
     ecmaVersion: 'latest',
@@ -30,6 +34,8 @@ export default {
     '@stylistic/comma-dangle': 'off',
     '@stylistic/arrow-parens': 'off',
     '@stylistic/max-statements-per-line': 'off',
-    '@stylistic/no-multiple-empty-lines': 'off'
+    '@stylistic/no-multiple-empty-lines': 'off',
+    
+    '@stylistic/eol-last': 'off'
   }
 };
