@@ -3,36 +3,55 @@ import _ from 'lodash';
 const printValue = (value) => {
   if (_.isObject(value)) {
     return '[complex value]';
-  } if (typeof value === 'string') {
+  }
+  if (typeof value === 'string') {
     return `'${value}'`;
   }
   return value;
 };
 
 const plain = (tree) => {
-  const cb = (node, result = '', path = '') => {
-    const {
-      key, value, type, newValue, children,
-    } = node;
-    const nodeName = `${path}${key}`.slice(1);
-    const printedValue = printValue(value);
-    const printedNewValue = printValue(newValue);
+  const cb = (node, path = '') => {
+    const { key, value, type, newValue, children } = node;
+    const lines = [];
+
+    const currentPath = path ? `${path}.${key}` : key;
+
     switch (type) {
       case 'root':
-        return children.map((item) => cb(item, result, `${path}${key}.`)).join('\n');
+        children.forEach((child) => {
+          const childLines = cb(child, currentPath);
+          lines.push(...childLines);
+        });
+        break;
+
       case 'nested':
-        return children.flatMap((item) => cb(item, result, `${path}${key}.`)).join('\n');
+        children.forEach((child) => {
+          const childLines = cb(child, currentPath);
+          lines.push(...childLines);
+        });
+        break;
+
       case 'added':
-        return `${result}Property '${nodeName}' was added with value: ${printedValue}`;
+        lines.push(`Property '${currentPath}' was added with value: ${printValue(value)}`);
+        break;
+
       case 'removed':
-        return `${result}Property '${nodeName}' was removed`;
+        lines.push(`Property '${currentPath}' was removed`);
+        break;
+
       case 'updated':
-        return `${result}Property '${nodeName}' was updated. From ${printedValue} to ${printedNewValue}`;
+        lines.push(`Property '${currentPath}' was updated. From ${printValue(value)} to ${printValue(newValue)}`);
+        break;
+
       default:
-        return [];
+        break;
     }
+
+    return lines;
   };
-  return cb(tree);
+
+  return cb(tree, '').join('\n');
 };
 
 export default plain;
