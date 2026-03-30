@@ -5,10 +5,10 @@ import json from './json.js'
 const formatData = (formatName, structure) => {
   if (formatName === 'plain') {
     return plain(structure)
-  } 
+  }
   if (formatName === 'json') {
     return json(structure)
-  } 
+  }
   if (formatName === 'stylish') {
     return stylish(structure)
   }

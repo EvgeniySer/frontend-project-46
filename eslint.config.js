@@ -36,6 +36,6 @@ export default [
       '@stylistic/max-statements-per-line': 'off',
       '@stylistic/no-multiple-empty-lines': 'off',
       '@stylistic/eol-last': 'off',
-    }
-  }
+    },
+  },
 ]

@@ -16,7 +16,7 @@ const makeNode = (key, type, children, value, newValue) => {
   return { key, type, children }
 }
 
-const makeTree = (keys, parsedData1, parsedData2) => keys.map(el => {
+const makeTree = (keys, parsedData1, parsedData2) => keys.map((el) => {
   if (isValueObject(el, parsedData1, parsedData2)) {
     const subKeys1 = _.get(parsedData1, el)
     const subKeys2 = _.get(parsedData2, el)
@@ -26,10 +26,12 @@ const makeTree = (keys, parsedData1, parsedData2) => keys.map(el => {
   }
   if (_.get(parsedData1, el) === _.get(parsedData2, el)) {
     return makeNode(el, 'unchanged', [], parsedData2[el])
-  } if (_.has(parsedData1, el) && _.has(parsedData2, el)
+  }
+  if (_.has(parsedData1, el) && _.has(parsedData2, el)
     && _.get(parsedData1, el) !== _.get(parsedData2, el)) {
     return makeNode(el, 'updated', [], parsedData1[el], parsedData2[el])
-  } if (_.has(parsedData1, el)) {
+  }
+  if (_.has(parsedData1, el)) {
     return makeNode(el, 'removed', [], parsedData1[el])
   }
   return makeNode(el, 'added', [], parsedData2[el])

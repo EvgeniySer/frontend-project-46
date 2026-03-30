@@ -4,7 +4,7 @@ import parse from './parsers.js'
 import readFile from './readFile.js'
 import getFileFormat from './getFileFormat.js'
 
-const getData = filePath => {
+const getData = (filePath) => {
   const data = readFile(filePath)
   const format = getFileFormat(filePath)
   return parse(data, format)

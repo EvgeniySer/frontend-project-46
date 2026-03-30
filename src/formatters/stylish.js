@@ -24,7 +24,7 @@ const makeLine = (item, depth) => {
   return ''
 }
 
-const stylish = tree => {
+const stylish = (tree) => {
   const cb = (data, result = '', depth = 0) => {
     const {
       key, value, type, newValue, children,

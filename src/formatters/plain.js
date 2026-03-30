@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const printValue = value => {
+const printValue = (value) => {
   if (_.isObject(value)) {
     return '[complex value]'
   }
@@ -10,7 +10,7 @@ const printValue = value => {
   return value
 }
 
-const plain = tree => {
+const plain = (tree) => {
   const cb = (node, path = '') => {
     const {
       key, value, type, newValue, children,
@@ -21,14 +21,14 @@ const plain = tree => {
 
     switch (type) {
       case 'root':
-        children.forEach(child => {
+        children.forEach((child) => {
           const childLines = cb(child, currentPath)
           lines.push(...childLines)
         })
         break
 
       case 'nested':
-        children.forEach(child => {
+        children.forEach((child) => {
           const childLines = cb(child, currentPath)
           lines.push(...childLines)
         })
