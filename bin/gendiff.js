@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { program } from 'commander';
-import compareFiles from '../src/compareFiles.js';
+import { program } from 'commander'
+import compareFiles from '../src/compareFiles.js'
 
 program
   .description('Compares two configuration files and shows a difference.')
@@ -11,6 +11,6 @@ program
   .arguments('<filepath1>')
   .arguments('<filepath2>')
   .action((filepath1, filepath2) => {
-    console.log(compareFiles(filepath1, filepath2, program.opts().format));
+    console.log(compareFiles(filepath1, filepath2, program.opts().format))
   })
-  .parse();
+  .parse()
