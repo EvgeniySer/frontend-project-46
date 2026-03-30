@@ -15,8 +15,8 @@
     * формат stylish - $ gendiff filepath1.json filepath2.json
 
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/mkolotovich/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/mkolotovich/frontend-project-46/actions)
-[![Actions Status](https://github.com/mkolotovich/frontend-project-lvl2/actions/workflows/ESLint&tests.yml/badge.svg)](https://github.com/mkolotovich/frontend-project-46/actions)
+[![Actions Status](https://github.com/EvgeniySer/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/EvgeniySer/frontend-project-44/actions)
+[![Actions Status](https://github.com/EvgeniySer/frontend-project-44/actions/workflows/ESLint&tests.yml/badge.svg)](https://github.com/EvgeniySer/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f7687a3f327fe7d6db80/maintainability)](https://codeclimate.com/github/mkolotovich/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f7687a3f327fe7d6db80/test_coverage)](https://codeclimate.com/github/mkolotovich/frontend-project-46/test_coverage)
 [![asciicast](https://asciinema.org/a/l0l2DsCLbGOMTNgIku6pMG05D.svg)](https://asciinema.org/a/l0l2DsCLbGOMTNgIku6pMG05D)
