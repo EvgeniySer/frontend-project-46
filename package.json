@@ -5,11 +5,12 @@
   "main": "src/compareFiles.js",
   "scripts": {
     "test": "jest",
-    "testdev": "jest --watchAll"
+    "testdev": "jest --watchAll",
+    "test-coverage": "jest --coverage --coverageProvider=v8"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkolotovich/frontend-project-lvl2.git"
+    "url": "git+https://github.com/mkolotovich/frontend-project-46.git"
   },
   "keywords": [
     "difference",
@@ -18,13 +19,13 @@
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "author": "Mike Kolotovich",
+  "author": "EvgeniySer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mkolotovich/frontend-project-lvl2/issues"
+    "url": "https://github.com/mkolotovich/frontend-project-46/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/mkolotovich/frontend-project-lvl2#readme",
+  "homepage": "https://github.com/mkolotovich/frontend-project-46#readme",
   "dependencies": {
     "commander": "^7.2.0",
     "js-yaml": "^3.14.1",
@@ -32,10 +33,11 @@
   },
   "devDependencies": {
     "@jest/globals": "^27.0.3",
-    "eslint": "^7.27.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
-    "jest": "^27.0.4",
-    "jest-cli": "^27.0.4"
+    "jest": "^30.3.0",
+    "jest-cli": "^30.3.0",
+    "vitest": "^4.1.2"
   }
 }

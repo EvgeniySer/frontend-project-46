@@ -15,11 +15,11 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         name: 'setup node'
         with:
-          node-version: '13.x'
+          node-version: '22.x'
       # Runs the Linter action
       - name: 'install'
         run: npm i
